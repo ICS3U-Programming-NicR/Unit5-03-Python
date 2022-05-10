@@ -7,10 +7,10 @@
 
 def level():
     # define the variables
-    counter = 0
     percentage = 0
-    while counter < 1:
+    while True:
         mark = input("what was your level on the last assignment: ")
+        mark = mark.strip()
         # convert level to percentage
         match mark:
             case "4++":
@@ -85,7 +85,6 @@ def fraction_get():
             numerator = int(numerator_str)
             denominator = int(denominator_str)
             percentage = (numerator / denominator) * 100
-            print(percentage)
             # check if percentage is above 0 and below 100
             if percentage < 0 or percentage > 100:
                 print(
@@ -109,6 +108,7 @@ def main():
             type_of_input = input(
                 "What type of mark did you get(P for percentage/L for level/F for fraction/C for calculate): "
             )
+            type_of_input = type_of_input.strip()
             # check what type of mark they got
             if type_of_input == "L" or type_of_input == "l" or type_of_input == "level":
                 counter += 1
@@ -132,7 +132,7 @@ def main():
         if counter > 0:
             # calculate the average
             average_percentage = total_percentage / counter
-            print("Your average percentage is {}".format(average_percentage))
+            print("Your average percentage is {:.2f}%".format(average_percentage))
         else:
             print(
                 "your average_percentage is 0 since you didn't input any valid values"
